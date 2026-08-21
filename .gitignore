@@ -1,0 +1,6 @@
+venv/
+.env
+outlook_profile/
+browser_profile/
+__pycache__/
+*.pyc
