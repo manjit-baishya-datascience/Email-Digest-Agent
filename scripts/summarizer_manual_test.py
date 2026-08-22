@@ -15,7 +15,7 @@ def find_latest_scrape_file() -> str:
     """Finds the most recently modified JSON file in scraped_data/,
     so this test always runs against your latest real scrape without
     needing to hardcode a filename."""
-    pattern = os.path.join(PROJECT_ROOT, "scraped_data", "*.json")
+    pattern = os.path.join(PROJECT_ROOT, "scraped_data", "*scraper*.json")
     files = glob.glob(pattern)
 
     if not files:
