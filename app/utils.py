@@ -1,6 +1,33 @@
 import json
 from datetime import datetime
+import re
 
+def parse_forwarded_header(full_body: str) -> dict:
+    """Extracts the original sender/date/subject from a forwarded
+    email's embedded header block. Returns None for any field it
+    can't find, rather than guessing."""
+
+    from_match = re.search(r"From:\s*(.+?)\s*<(.+?)>", full_body)
+    date_match = re.search(r"Date:\s*(.+)", full_body)
+    subject_match = re.search(r"Subject:\s*(.+)", full_body)
+
+    sender_name = from_match.group(1).strip() if from_match else None
+    sender_email = from_match.group(2).strip() if from_match else None
+    original_date = date_match.group(1).strip() if date_match else None
+    original_subject = subject_match.group(1).strip() if subject_match else None
+
+    # Body = whatever comes after the "Subject:" line and the "To:" line
+    # that typically follows it — everything past the header block
+    body_start = full_body.find("\n", full_body.find("Subject:"))
+    original_body = full_body[body_start:].strip() if body_start != -1 else None
+
+    return {
+        "sender_name": sender_name,
+        "sender_email": sender_email,
+        "date_time": original_date,
+        "subject": original_subject,
+        "body": original_body
+    }
 
 def strip_json_fences(raw_text: str) -> str:
     """Ollama sometimes wraps JSON output in ```json ... ``` fences despite

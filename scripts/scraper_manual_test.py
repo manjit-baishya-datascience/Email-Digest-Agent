@@ -14,13 +14,15 @@ if __name__ == "__main__":
 
     print(f"\nScraped {len(emails)} emails\n")
 
-    for e in emails:
-        print(f"--- Email {e['index']} (forwarded: {e['is_forwarded']}) ---")
-        print(f"Label: {e['raw_label'][:100]}...")
-        if e["is_forwarded"]:
-            body_preview = (e["full_body"] or "NONE")[:200]
-            print(f"Full body preview: {body_preview}")
-        print()
+    # for e in emails:
+    #     print(f"--- Email {e['index']} (forwarded: {e['is_forwarded']}) ---")
+    #     print(f"Message ID: {e['message_id']}")
+    #     print(f"Sender: {e['sender_name']} <{e['sender_email']}>")
+    #     print(f"Subject: {e['subject']}")
+    #     print(f"Date/Time: {e['date_time']}")
+    #     body_preview = (e['body'] or "NONE")[:150]
+    #     print(f"Body preview: {body_preview}")
+    #     print()
 
     # Also save full output so you can inspect it properly in a file
     with open("scraped_data/scraper_test_output.json", "w", encoding="utf-8") as f:
