@@ -1,0 +1,29 @@
+import sys
+import os
+
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
+
+import logging
+logging.basicConfig(level=logging.INFO)
+
+from app.scraper import scrape_inbox
+import json
+
+if __name__ == "__main__":
+    emails = scrape_inbox()
+
+    print(f"\nScraped {len(emails)} emails\n")
+
+    for e in emails:
+        print(f"--- Email {e['index']} (forwarded: {e['is_forwarded']}) ---")
+        print(f"Label: {e['raw_label'][:100]}...")
+        if e["is_forwarded"]:
+            body_preview = (e["full_body"] or "NONE")[:200]
+            print(f"Full body preview: {body_preview}")
+        print()
+
+    # Also save full output so you can inspect it properly in a file
+    with open("scraped_data/scraper_test_output.json", "w", encoding="utf-8") as f:
+        json.dump(emails, f, indent=2, ensure_ascii=False)
+
+    print("Full output saved to scraped_data/scraper_test_output.json")
