@@ -7,35 +7,27 @@ from app.utils import strip_json_fences
 
 logger = logging.getLogger(__name__)
 
-def build_prompt(emails: list[dict]) -> str:
-    """Constructs the summarization prompt from clean, structured email
-    data. Pure function — no LLM call, no side effects — easy to unit
-    test independently of Ollama being available."""
 
-    email_blocks = []
-    for e in emails:
-        block = (
-            f"Message ID: {e['message_id']}\n"
-            f"From: {e['sender_name']} <{e['sender_email']}>\n"
-            f"Subject: {e['subject']}\n"
-            f"Date/Time: {e['date_time']}\n"
-            f"Forwarded: {e['is_forwarded']}\n"
-            f"Body: {e['body']}"
-        )
-        email_blocks.append(block)
+def build_prompt(email: dict) -> str:
+    """Constructs the summarization prompt for a single email. Only the
+    body (plus forwarded status, for context) is sent — sender, subject,
+    message_id, and date are already known from scraping and are
+    re-attached to the LLM's output afterward rather than being
+    re-extracted by the model. Pure function — no LLM call, no side
+    effects — easy to unit test independently of Ollama.
 
-    emails_text = "\n\n---\n\n".join(email_blocks)
+    One email per call, rather than a batch, because Ollama's JSON
+    mode reliably produces a single well-formed object but is
+    unreliable at producing a list of N objects matching N inputs —
+    observed directly: batches of 15 truncated to 5 results, and
+    batches of 5 collapsed into a single merged object."""
 
-    return f"""You are an email assistant. Below are structured emails scraped from an inbox.
-Note: some emails are self-forwarded copies (Forwarded: True) — for these, the sender/subject/
-date/body already reflect the ORIGINAL message, not the forwarding. Judge priority based on the
-email's content and stated urgency, not on how or when it was delivered to this inbox, since
-every email here was manually forwarded by the same person.
+    return f"""You are an email assistant. Below is a single email body scraped from an inbox.
+Note: if this is a forwarded copy (see Forwarded status below), the body already reflects the
+ORIGINAL message content. Judge urgency based only on the email body's content, not on how or
+when it was delivered, since forwarded emails here were manually forwarded by the same person.
 
-For each email, extract and return:
-- message_id: copy exactly from the input
-- sender: the sender name
-- subject: the subject line
+Extract and return:
 - summary: a one-line summary of the email
 - needs_action: true or false, whether a response or action is required
 - urgency_score: an integer from 1 (no urgency) to 5 (highly urgent), based only on content
@@ -45,23 +37,19 @@ For each email, extract and return:
 Only use information present in the text. Do not guess or invent details that are not there.
 If something is unclear or missing, say "unknown" rather than guessing.
 
-Respond ONLY with valid JSON, no preamble, no markdown fences, in this exact format:
-[
-  {{
-    "message_id": "...",
-    "sender": "...",
-    "subject": "...",
-    "summary": "...",
-    "needs_action": true,
-    "urgency_score": 3,
-    "priority_reason": "...",
-    "dates_mentioned": "..."
-  }}
-]
+Respond ONLY with a single valid JSON object, in this exact format:
+{{
+  "summary": "...",
+  "needs_action": true,
+  "urgency_score": 3,
+  "priority_reason": "...",
+  "dates_mentioned": "..."
+}}
 
-Emails:
-{emails_text}
+Forwarded: {email['is_forwarded']}
+Body: {email['body']}
 """
+
 
 def call_llm(prompt: str) -> str:
     """Sends the prompt to the local Ollama model. Raises LLMError on
@@ -69,38 +57,86 @@ def call_llm(prompt: str) -> str:
     try:
         response = ollama.chat(
             model=LLM_MODEL,
-            messages=[{"role": "user", "content": prompt}]
+            messages=[{"role": "user", "content": prompt}],
+            format="json"  # forces syntactically valid JSON output from Ollama
         )
         return response["message"]["content"]
     except Exception as e:
         raise LLMError(f"Failed to get a response from local LLM '{LLM_MODEL}': {e}") from e
 
-def parse_response(raw_text: str) -> list[dict]:
-    """Cleans and parses the LLM's response into structured data.
-    Raises LLMError if the result isn't valid JSON, rather than
-    passing broken data further down the pipeline."""
+
+def parse_response(raw_text: str) -> dict:
+    """Cleans and parses the LLM's response into a single structured
+    object. Raises LLMError if the result isn't valid JSON or isn't a
+    JSON object, rather than passing broken data further down the
+    pipeline."""
     cleaned = strip_json_fences(raw_text)
     try:
-        return json.loads(cleaned)
+        parsed = json.loads(cleaned)
     except json.JSONDecodeError as e:
         raise LLMError(
             f"LLM did not return valid JSON. Raw output was: {raw_text[:300]}"
         ) from e
 
+    if not isinstance(parsed, dict):
+        raise LLMError(
+            f"Expected a JSON object but got {type(parsed).__name__}. "
+            f"Raw output was: {raw_text[:300]}"
+        )
+
+    return parsed
+
+
+def merge_with_scraped_data(email: dict, result: dict) -> dict:
+    """Re-attaches the fields we already know from scraping (message_id,
+    sender, subject, date_time) to the LLM's reasoning output (summary,
+    urgency_score, etc.)."""
+    return {
+        "message_id": email["message_id"],
+        "sender": email["sender_name"],
+        "sender_email": email["sender_email"],
+        "subject": email["subject"],
+        "date_time": email["date_time"],
+        "summary": result.get("summary", "unknown"),
+        "needs_action": result.get("needs_action", False),
+        "urgency_score": result.get("urgency_score", 1),
+        "priority_reason": result.get("priority_reason", "unknown"),
+        "dates_mentioned": result.get("dates_mentioned", "none"),
+    }
+
+
+def summarize_one(email: dict) -> dict:
+    """Summarizes a single email: builds the prompt, calls the local
+    LLM, parses the result, and merges it with the already-known
+    scraped fields. Raises LLMError on any failure, with a specific
+    message describing what went wrong."""
+    prompt = build_prompt(email)
+    raw_response = call_llm(prompt)
+    result = parse_response(raw_response)
+    return merge_with_scraped_data(email, result)
+
+
 def summarize_emails(emails: list[dict]) -> list[dict]:
-    """Full summarization pipeline: builds the prompt, calls the local
-    LLM, parses and validates the result. Raises LLMError on any
-    failure, with a specific message describing what went wrong."""
+    """Full summarization pipeline. Each email is summarized with its
+    own LLM call rather than batching multiple emails per call, since
+    the local model reliably produces one well-formed JSON object but
+    is unreliable at producing a correctly-sized list of objects.
+    A single email's failure is logged and skipped rather than
+    aborting the whole run, so one bad email does not lose the rest
+    of the digest."""
 
     if not emails:
         logger.info("No emails to summarize")
         return []
 
-    logger.info(f"Summarizing {len(emails)} emails using model '{LLM_MODEL}'")
+    logger.info(f"Summarizing {len(emails)} emails individually using model '{LLM_MODEL}'")
 
-    prompt = build_prompt(emails)
-    raw_response = call_llm(prompt)
-    digest_items = parse_response(raw_response)
+    digest_items = []
+    for i, email in enumerate(emails):
+        try:
+            digest_items.append(summarize_one(email))
+        except LLMError as e:
+            logger.warning(f"Skipping email {i + 1} ({email.get('subject')}) — {e}")
 
-    logger.info(f"Summarization complete — {len(digest_items)} digest items produced")
+    logger.info(f"Summarization complete — {len(digest_items)} of {len(emails)} emails summarized")
     return digest_items
