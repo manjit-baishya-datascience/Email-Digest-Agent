@@ -1,0 +1,38 @@
+2026-08-23 02:15:22,958 | INFO     | app.main | Received trigger request — starting pipeline run
+2026-08-23 02:15:37,215 | INFO     | app.scraper | Forwarded message resolved — original sender: Steam Support <noreply@steampowered.com>
+2026-08-23 02:15:38,208 | INFO     | app.scraper | Forwarded message resolved — original sender: Steam Support <noreply@steampowered.com>
+2026-08-23 02:15:39,269 | INFO     | app.scraper | Forwarded message resolved — original sender: Steam Support <noreply@steampowered.com>
+2026-08-23 02:15:40,251 | INFO     | app.scraper | Forwarded message resolved — original sender: Steam Team <noreply@steampowered.com>
+2026-08-23 02:15:41,280 | INFO     | app.scraper | Forwarded message resolved — original sender: Steam Team <noreply@steampowered.com>
+2026-08-23 02:15:41,421 | INFO     | app.scraper | Forwarded message resolved — original sender: Steam Team <noreply@steampowered.com>
+2026-08-23 02:15:42,109 | INFO     | app.scraper | Forwarded message resolved — original sender: Steam Team <noreply@steampowered.com>
+2026-08-23 02:15:43,633 | INFO     | app.scraper | Forwarded message resolved — original sender:  <credit_cards@icici.bank.in>
+2026-08-23 02:15:44,705 | INFO     | app.scraper | Forwarded message resolved — original sender: Amazon Pay India <no-reply@amazonpay.in>
+2026-08-23 02:15:45,700 | INFO     | app.scraper | Forwarded message resolved — original sender:  <credit_cards@icici.bank.in>
+2026-08-23 02:15:46,707 | INFO     | app.scraper | Forwarded message resolved — original sender:  <credit_cards@icici.bank.in>
+2026-08-23 02:15:47,707 | INFO     | app.scraper | Forwarded message resolved — original sender:  <credit_cards@icici.bank.in>
+2026-08-23 02:15:48,735 | INFO     | app.scraper | Forwarded message resolved — original sender: Amazon Pay India <no-reply@amazonpay.in>
+2026-08-23 02:15:48,735 | INFO     | app.scraper | Reached target of 15 messages
+2026-08-23 02:15:48,735 | INFO     | app.scraper | Scraping complete — 15 messages collected
+2026-08-23 02:15:49,073 | INFO     | app.nodes | scrape_node: collected 15 emails
+2026-08-23 02:15:49,074 | INFO     | app.summarizer | Summarizing 15 emails individually using model 'llama3.1'
+2026-08-23 02:15:59,257 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-23 02:16:02,698 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-23 02:16:07,509 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-23 02:16:12,531 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-23 02:16:16,447 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-23 02:16:20,565 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-23 02:16:24,504 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-23 02:16:27,135 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-23 02:16:29,504 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-23 02:16:35,418 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-23 02:16:39,942 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-23 02:16:45,905 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-23 02:16:52,188 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-23 02:16:58,116 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-23 02:17:02,337 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-23 02:17:02,338 | INFO     | app.summarizer | Summarization complete — 15 of 15 emails summarized
+2026-08-23 02:17:02,338 | INFO     | app.nodes | summarize_node: produced 15 digest items
+2026-08-23 02:17:02,340 | INFO     | app.digest | Digest saved to F:\Assignment\outputs\digest_20260823_021702.md
+2026-08-23 02:17:02,340 | INFO     | app.nodes | save_node: digest saved to F:\Assignment\outputs\digest_20260823_021702.md
+2026-08-23 02:17:02,341 | INFO     | app.main | Pipeline succeeded — digest saved to F:\Assignment\outputs\digest_20260823_021702.md

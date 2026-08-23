@@ -1,3 +1,6 @@
 pytest
 camoufox
 ollama
+langgraph
+fastapi
+uvicorn
