@@ -11,6 +11,7 @@ from app.summarizer import build_prompt
 INPUT_PATH = "finetune_data/labelled_dataset.csv"
 OUTPUT_PATH = "finetune_data/training_data.jsonl"
 
+
 def row_to_training_example(row: dict) -> dict:
     """Builds one training example using the same prompt structure the
     real summarizer.py uses at inference time, paired with the
@@ -45,6 +46,7 @@ def row_to_training_example(row: dict) -> dict:
         ]
     }
 
+
 if __name__ == "__main__":
     with open(INPUT_PATH, "r", encoding="utf-8") as f:
         reader = csv.DictReader(f)
@@ -53,12 +55,20 @@ if __name__ == "__main__":
     print(f"Loaded {len(rows)} labeled rows")
 
     skipped = 0
+    fallback_count = 0
     with open(OUTPUT_PATH, "w", encoding="utf-8") as f:
         for i, row in enumerate(rows):
             if not row.get("body", "").strip():
-                print(f"Row {i + 1}: empty body, skipping")
-                skipped += 1
-                continue
+                subject = row.get("subject", "").strip()
+                if subject:
+                    row["body"] = subject
+                    fallback_count += 1
+                    print(f"Row {i + 1}: empty body, using subject as fallback")
+                else:
+                    print(f"Row {i + 1}: empty body AND empty subject, skipping")
+                    skipped += 1
+                    continue
+
             if not row.get("urgency_score", "").strip():
                 print(f"Row {i + 1}: missing urgency_score, skipping")
                 skipped += 1
@@ -68,4 +78,5 @@ if __name__ == "__main__":
             f.write(json.dumps(example, ensure_ascii=False) + "\n")
 
     written = len(rows) - skipped
-    print(f"\nWrote {written} training examples to {OUTPUT_PATH} ({skipped} skipped)")
+    print(f"\nWrote {written} training examples to {OUTPUT_PATH} "
+          f"({skipped} skipped, {fallback_count} used subject as body fallback)")

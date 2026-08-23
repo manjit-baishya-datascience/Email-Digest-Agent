@@ -43,6 +43,7 @@ def format_digest_markdown(digest_items: list[dict]) -> str:
         lines.append(f"- **Summary:** {item['summary']}")
         lines.append(f"- **Urgency:** {item['urgency_score']}/5 — {item['priority_reason']}")
         lines.append(f"- **Needs action:** {item['needs_action']}")
+        lines.append(f"- **Needs attention:** {item['needs_attention']}")
         lines.append(f"- **Dates mentioned:** {item['dates_mentioned']}")
         lines.append("")
 

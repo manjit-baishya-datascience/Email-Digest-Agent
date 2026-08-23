@@ -4,3 +4,5 @@ outlook_profile/
 browser_profile/
 __pycache__/
 *.pyc
+finetuned_model
+plots
