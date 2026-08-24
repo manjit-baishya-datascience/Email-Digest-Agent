@@ -5,5 +5,5 @@ browser_profile/
 __pycache__/
 *.pyc
 finetuned_model
-finetuned_data
+finetune_data
 plots
