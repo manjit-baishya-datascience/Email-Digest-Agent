@@ -19,7 +19,7 @@ See [`docs/design.md`](docs/design.md) for architecture, design decisions, and k
 ### 1. Clone and install
 
 ```cmd
-git clone <repo-url>
+git clone https://github.com/manjit-baishya-datascience/Email-Digest-Agent.git
 cd email-digest-agent
 python -m venv venv
 venv\Scripts\activate.bat
