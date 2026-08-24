@@ -22,16 +22,11 @@ def scrape_node(state: AgentState) -> dict:
 
 
 def summarize_node(state: AgentState) -> dict:
-    """Summarizes previously scraped emails. Skips work if an earlier
-    node already failed, so a broken pipeline doesn't try to summarize
-    data that was never scraped."""
     if state.get("error"):
         return {}
-
     try:
-        digest_items = summarize_emails(state["emails"])
-        logger.info(f"summarize_node: produced {len(digest_items)} digest items")
-        return {"digest_items": digest_items}
+        result = summarize_emails(state["emails"])
+        return {"digest_items": result["digest_items"], "overview": result["overview"]}
     except LLMError as e:
         logger.error(f"summarize_node failed: {e}")
         return {"error": str(e), "error_type": type(e).__name__}
@@ -44,7 +39,9 @@ def save_node(state: AgentState) -> dict:
         return {}
 
     try:
-        output_path = save_digest(state["digest_items"])
+        logger.info(f"DEBUG: overview in state = {state.get('overview', 'MISSING KEY')}")
+        
+        output_path = save_digest(state["digest_items"], state.get("overview", ""))
         logger.info(f"save_node: digest saved to {output_path}")
         return {"output_path": output_path}
     except PersistenceError as e:

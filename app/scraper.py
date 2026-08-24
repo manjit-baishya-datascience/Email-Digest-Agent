@@ -47,11 +47,6 @@ def extract_shallow_fields(row, index: int) -> dict:
     }
 
 def scrape_deep(page, row, index: int) -> dict:
-    """Clicks into a forwarded message, extracts the full body, then
-    parses the embedded 'Forwarded message' header block to recover
-    the ORIGINAL sender/subject/date/body — overriding the outer
-    (self-forwarded) metadata Outlook shows in the row itself."""
-
     message_id = row.get_attribute("data-convid")
 
     row.click()
@@ -59,6 +54,12 @@ def scrape_deep(page, row, index: int) -> dict:
     full_body = page.locator('[role="document"]').first.inner_text()
 
     parsed = parse_forwarded_header(full_body)
+
+    # Return to the inbox list view before continuing to scan other
+    # rows — clicking into an email can leave the virtualized list in
+    # an unstable state otherwise.
+    page.go_back()
+    page.wait_for_selector('[role="complementary"][aria-label="Message list"]', timeout=MESSAGE_LIST_TIMEOUT_MS)
 
     return {
         "message_id": message_id,
@@ -77,7 +78,9 @@ def scroll_and_collect_emails(page, target_count: int = TARGET_EMAIL_COUNT,
     extracting data at each step, since scrolled-out rows are
     destroyed from the DOM and cannot be read after the fact.
     Accumulates unique messages by message_id until target_count is
-    reached or the list stops producing new messages."""
+    reached or the list stops producing new messages. A single row's
+    failure (timeout, DOM instability from virtualization) is logged
+    and skipped rather than aborting the entire scrape."""
 
     scroller = page.locator(SCROLLER_SELECTOR)
     collected = {}  # keyed by message_id to avoid duplicates across scroll steps
@@ -87,33 +90,38 @@ def scroll_and_collect_emails(page, target_count: int = TARGET_EMAIL_COUNT,
         row_count = rows.count()
 
         for i in range(row_count):
-            row = rows.nth(i)
-            message_id = row.get_attribute("data-convid")
+            try:
+                row = rows.nth(i)
+                message_id = row.get_attribute("data-convid")
 
-            if message_id in collected:
-                continue  # already captured this one on a previous scroll step
+                if message_id in collected:
+                    continue  # already captured this one on a previous scroll step
 
-            raw_label = row.get_attribute("aria-label") or ""
+                raw_label = row.get_attribute("aria-label") or ""
 
-            if is_forwarded_message(raw_label):
-                try:
-                    email = scrape_deep(page, row, len(collected) + 1)
-                    logger.info(
-                        f"Forwarded message resolved — original sender: "
-                        f"{email['sender_name']} <{email['sender_email']}>"
-                    )
-                except Exception as e:
-                    logger.warning(f"Deep scrape failed for message {message_id}: {e}")
+                if is_forwarded_message(raw_label):
+                    try:
+                        email = scrape_deep(page, row, len(collected) + 1)
+                        logger.info(
+                            f"Forwarded message resolved — original sender: "
+                            f"{email['sender_name']} <{email['sender_email']}>"
+                        )
+                    except Exception as e:
+                        logger.warning(f"Deep scrape failed for message {message_id}: {e}")
+                        email = extract_shallow_fields(row, len(collected) + 1)
+                        email["is_forwarded"] = True
+                else:
                     email = extract_shallow_fields(row, len(collected) + 1)
-                    email["is_forwarded"] = True
-            else:
-                email = extract_shallow_fields(row, len(collected) + 1)
 
-            collected[message_id] = email
+                collected[message_id] = email
 
-            if len(collected) >= target_count:
-                logger.info(f"Reached target of {target_count} messages")
-                return list(collected.values())
+                if len(collected) >= target_count:
+                    logger.info(f"Reached target of {target_count} messages")
+                    return list(collected.values())
+
+            except Exception as e:
+                logger.warning(f"Skipping row {i} entirely — failed to read: {e}")
+                continue
 
         # Scroll for more, then check whether anything new actually loaded
         previous_total = len(collected)

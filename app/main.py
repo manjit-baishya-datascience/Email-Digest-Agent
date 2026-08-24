@@ -32,6 +32,6 @@ async def trigger_run():
         "digest_item_count": len(result.get("digest_items", [])),
     }
 
-@app.get("/health")
+@app.get("/")
 async def health_check():
-    return {"status": "ok"}
+    return {"status": "API is running"}

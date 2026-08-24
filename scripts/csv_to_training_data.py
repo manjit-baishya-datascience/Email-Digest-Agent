@@ -8,7 +8,7 @@ sys.path.insert(0, PROJECT_ROOT)
 
 from app.summarizer import build_prompt
 
-INPUT_PATH = "finetune_data/labelled_dataset.csv"
+INPUT_PATH = "finetune_data/labelled_dataset_completed.csv"
 OUTPUT_PATH = "finetune_data/training_data.jsonl"
 
 
@@ -24,8 +24,6 @@ def row_to_training_example(row: dict) -> dict:
 
     prompt = build_prompt(fake_email_dict)
 
-    needs_action = str(row.get("needs_action", "")).strip().lower() in ("yes", "true", "1")
-
     try:
         urgency_score = int(row.get("urgency_score", "1"))
     except ValueError:
@@ -33,10 +31,7 @@ def row_to_training_example(row: dict) -> dict:
 
     completion = json.dumps({
         "summary": row.get("summary", "").strip(),
-        "needs_action": needs_action,
         "urgency_score": urgency_score,
-        "priority_reason": row.get("priority_reason", "").strip(),
-        "dates_mentioned": row.get("dates_mentioned", "none").strip() or "none"
     })
 
     return {
@@ -45,7 +40,6 @@ def row_to_training_example(row: dict) -> dict:
             {"role": "assistant", "content": completion}
         ]
     }
-
 
 if __name__ == "__main__":
     with open(INPUT_PATH, "r", encoding="utf-8") as f:

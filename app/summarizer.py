@@ -1,72 +1,89 @@
 import json
 import logging
 import ollama
-from app.config import LLM_MODEL
+from app.config import LLM_MODEL, URGENCY_THRESHOLD
 from app.exceptions import LLMError
 from app.utils import strip_json_fences
 
 logger = logging.getLogger(__name__)
 
 
-def build_prompt(email: dict) -> str:
-    """Constructs the summarization prompt for a single email. Only the
-    body (plus forwarded status, for context) is sent — sender, subject,
-    message_id, and date are already known from scraping and are
-    re-attached to the LLM's output afterward rather than being
-    re-extracted by the model. Pure function — no LLM call, no side
-    effects — easy to unit test independently of Ollama.
+def build_prompt(body: str) -> str:
+    """Single prompt producing both summary and urgency_score together
+    in one call — matches exactly what the fine-tuned model was
+    trained on. Pure function — no LLM call, no side effects — easy
+    to unit test independently of Ollama."""
 
-    Note: the fine-tuned model was trained only on needs_action,
-    needs_attention, urgency_score, and priority_reason — summary and
-    dates_mentioned are produced purely from the base model's general
-    capability, uninfluenced by fine-tuning. This is a deliberate,
-    documented tradeoff rather than an oversight."""
-
-    return f"""You are an email assistant. Below is a single email body scraped from an inbox.
-Note: if this is a forwarded copy (see Forwarded status below), the body already reflects the
-ORIGINAL message content. Judge urgency based only on the email body's content, not on how or
-when it was delivered, since forwarded emails here were manually forwarded by the same person.
-
-Extract and return:
+    return f"""Read this email body and return a JSON object with:
 - summary: a one-line summary of the email
-- needs_action: true or false, whether a response or action is required
-- needs_attention: true or false, whether this email is worth the user's attention at all
-- urgency_score: an integer from 1 (no urgency) to 5 (highly urgent), based only on content
-- priority_reason: a short phrase explaining the urgency_score
-- dates_mentioned: any specific dates mentioned in the body, or "none" if there are none
+- urgency_score: an integer from 1 to 5 rating how much timely action this email requires from the recipient:
+  1 = no action needed (newsletters, receipts, FYI notices)
+  2 = minor/optional action, no real deadline (casual invites, low-priority updates)
+  3 = action expected but not time-critical (routine requests, non-urgent replies)
+  4 = action needed soon (upcoming bill due, meeting confirmation, moderate deadline)
+  5 = immediate action required (OTP/login codes, account security alerts, bills due imminently, someone actively waiting on a reply)
 
-Only use information present in the text. Do not guess or invent details that are not there.
-If something is unclear or missing, say "unknown" rather than guessing.
+Base the score only on what's stated in the email. Do not guess or invent details that are not there.
 
 Respond ONLY with a single valid JSON object, in this exact format:
-{{
-  "summary": "...",
-  "needs_action": true,
-  "needs_attention": true,
-  "urgency_score": 3,
-  "priority_reason": "...",
-  "dates_mentioned": "..."
-}}
+{{"summary": "...", "urgency_score": 3}}
 
-Forwarded: {email['is_forwarded']}
-Body: {email['body']}
+Body: {body}
 """
 
-def call_llm(prompt: str) -> str:
-    """Sends the prompt to the local Ollama model. Raises LLMError on
-    any failure to reach or get a response from the model."""
+
+def build_overview_prompt(digest_items: list[dict]) -> str:
+    """Builds a prompt that combines the ALREADY-GENERATED individual
+    summaries into a single overall paragraph. Uses an explicit
+    per-email delimiter so the model treats each summary as a
+    distinct, separate item rather than blending unrelated emails
+    together (e.g. a Microsoft sign-in alert and a Google sign-in
+    alert must not be merged into one conflated statement)."""
+
+    summary_blocks = []
+    for item in digest_items:
+        block = (
+            f"Subject: {item['subject']}\n"
+            f"Summary: {item['summary']}"
+        )
+        summary_blocks.append(block)
+
+    emails_text = "\n--- END EMAIL ---\n".join(summary_blocks)
+
+    return f"""You are an email assistant. Below are the individual summaries of several URGENT
+emails from an inbox, separated by "--- END EMAIL ---" markers. Each is a SEPARATE, DISTINCT
+email — do not merge or conflate details from different emails, even if they look similar
+(e.g. a Microsoft sign-in alert and a Google sign-in alert are two different events, from two
+different senders, and must be described separately).
+
+Write a short overall summary (2-4 sentences) covering all of these urgent emails together,
+mentioning each one individually rather than generalizing across all of them.
+
+Respond ONLY with a single valid JSON object, in this exact format:
+{{"overview": "..."}}
+
+--- END EMAIL ---
+{emails_text}
+--- END EMAIL ---
+"""
+
+
+def call_llm(model: str, prompt: str) -> str:
+    """Sends a prompt to the given Ollama model. Raises LLMError on any
+    failure to reach or get a response from the model."""
     try:
         response = ollama.chat(
-            model=LLM_MODEL,
+            model=model,
             messages=[{"role": "user", "content": prompt}],
-            format="json"  # forces syntactically valid JSON output from Ollama
+            format="json"
         )
         return response["message"]["content"]
     except Exception as e:
-        raise LLMError(f"Failed to get a response from local LLM '{LLM_MODEL}': {e}") from e
+        raise LLMError(f"Failed to get a response from local LLM '{model}': {e}") from e
+
 
 def parse_response(raw_text: str) -> dict:
-    """Cleans and parses the LLM's response into a single structured
+    """Cleans and parses an LLM response into a single structured
     object. Raises LLMError if the result isn't valid JSON or isn't a
     JSON object, rather than passing broken data further down the
     pipeline."""
@@ -86,13 +103,15 @@ def parse_response(raw_text: str) -> dict:
 
     return parsed
 
-def merge_with_scraped_data(email: dict, result: dict) -> dict:
-    """Re-attaches the fields we already know from scraping (message_id,
-    sender, subject, date_time) to the LLM's reasoning output (summary,
-    urgency_score, etc.). Uses .get(key, default) throughout so a
-    missing field — e.g. from the fine-tuned model, which was only
-    trained on a subset of these keys — degrades gracefully instead
-    of raising a KeyError."""
+
+def summarize_one(email: dict) -> dict:
+    """Runs the fine-tuned model on a single email's body and returns
+    both its summary and urgency_score in one call. Raises LLMError
+    on failure."""
+    prompt = build_prompt(email["body"])
+    raw_response = call_llm(LLM_MODEL, prompt)
+    result = parse_response(raw_response)
+
     return {
         "message_id": email["message_id"],
         "sender": email["sender_name"],
@@ -100,44 +119,60 @@ def merge_with_scraped_data(email: dict, result: dict) -> dict:
         "subject": email["subject"],
         "date_time": email["date_time"],
         "summary": result.get("summary", "unknown"),
-        "needs_action": result.get("needs_action", False),
-        "needs_attention": result.get("needs_attention", False),
-        "urgency_score": result.get("urgency_score", 1),
-        "priority_reason": result.get("priority_reason", "unknown"),
-        "dates_mentioned": result.get("dates_mentioned", "none"),
+        "urgency_score": int(result.get("urgency_score", 1)),
     }
 
-def summarize_one(email: dict) -> dict:
-    """Summarizes a single email: builds the prompt, calls the local
-    LLM, parses the result, and merges it with the already-known
-    scraped fields. Raises LLMError on any failure, with a specific
-    message describing what went wrong."""
-    prompt = build_prompt(email)
-    raw_response = call_llm(prompt)
-    result = parse_response(raw_response)
-    return merge_with_scraped_data(email, result)
 
-def summarize_emails(emails: list[dict]) -> list[dict]:
-    """Full summarization pipeline. Each email is summarized with its
-    own LLM call rather than batching multiple emails per call, since
-    the local model reliably produces one well-formed JSON object but
-    is unreliable at producing a correctly-sized list of objects.
-    A single email's failure is logged and skipped rather than
-    aborting the whole run, so one bad email does not lose the rest
-    of the digest."""
+def get_digest_overview(digest_items: list[dict]) -> str:
+    """Generates one combined overview paragraph from the individual
+    summaries already present in digest_items. Returns a fallback
+    message on failure rather than raising, since this is an addition
+    to the digest, not a required field."""
+
+    if not digest_items:
+        return "No urgent emails to summarize."
+
+    try:
+        prompt = build_overview_prompt(digest_items)
+        raw_response = call_llm(LLM_MODEL, prompt)
+        result = parse_response(raw_response)
+        return result.get("overview", "unknown")
+    except LLMError as e:
+        logger.warning(f"Digest overview generation failed: {e}")
+        return "Overview unavailable for this run."
+
+
+def summarize_emails(emails: list[dict]) -> dict:
+    """Full pipeline: runs the fine-tuned model once per email to get
+    both summary and urgency_score, keeps only those meeting
+    URGENCY_THRESHOLD, then produces one combined overview paragraph
+    across the filtered set. A single email's failure is logged and
+    skipped rather than aborting the whole run, so one bad email does
+    not lose the rest of the digest. Returns a dict with both the
+    per-email digest items and the overview."""
 
     if not emails:
-        logger.info("No emails to summarize")
-        return []
+        logger.info("No emails to process")
+        return {"digest_items": [], "overview": "No emails to process."}
 
-    logger.info(f"Summarizing {len(emails)} emails individually using model '{LLM_MODEL}'")
+    logger.info(f"Summarizing {len(emails)} emails using model '{LLM_MODEL}'")
 
-    digest_items = []
+    scored_emails = []
     for i, email in enumerate(emails):
         try:
-            digest_items.append(summarize_one(email))
+            scored_emails.append(summarize_one(email))
         except LLMError as e:
             logger.warning(f"Skipping email {i + 1} ({email.get('subject')}) — {e}")
 
-    logger.info(f"Summarization complete — {len(digest_items)} of {len(emails)} emails summarized")
-    return digest_items
+    digest_items = [e for e in scored_emails if e["urgency_score"] >= URGENCY_THRESHOLD]
+    logger.info(
+        f"{len(digest_items)} of {len(scored_emails)} emails meet the urgency "
+        f"threshold ({URGENCY_THRESHOLD})"
+    )
+
+    digest_items.sort(key=lambda item: item["urgency_score"], reverse=True)
+
+    overview = get_digest_overview(digest_items)
+
+    logger.info(f"Summarization complete — {len(digest_items)} urgent emails, overview generated")
+    return {"digest_items": digest_items, "overview": overview}

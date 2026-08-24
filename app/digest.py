@@ -7,54 +7,44 @@ from app.utils import timestamped_filename
 
 logger = logging.getLogger(__name__)
 
-def sort_by_urgency(digest_items: list[dict]) -> list[dict]:
-    """Returns digest items sorted by urgency_score, highest first.
-    Pure function — no side effects — easy to unit test directly."""
-    return sorted(digest_items, key=lambda item: item.get("urgency_score", 1), reverse=True)
 
-def format_digest_markdown(digest_items: list[dict]) -> str:
+def format_digest_markdown(digest_items: list[dict], overview: str = "") -> str:
     """Formats digest items into a human-readable Markdown document.
     Pure function — takes structured data, returns a string, no disk
-    access — testable without ever writing a file."""
+    access — testable without ever writing a file. digest_items is
+    already filtered to urgent-only and sorted by urgency (highest
+    first) by summarize_emails, so no re-sorting or re-filtering
+    happens here."""
 
-    lines = [f"# Inbox Digest — {datetime.now().strftime('%Y-%m-%d %H:%M')}\n"]
+    lines = [f"# Urgent Email Digest — {datetime.now().strftime('%Y-%m-%d %H:%M')}\n"]
 
     if not digest_items:
-        lines.append("No emails were found or summarized in this run.\n")
+        lines.append("No emails met the urgency threshold in this run.\n")
         return "\n".join(lines)
 
-    sorted_items = sort_by_urgency(digest_items)
+    if overview:
+        lines.append("## Overview\n")
+        lines.append(f"{overview}\n")
 
-    action_items = [item for item in sorted_items if item.get("needs_action")]
-    if action_items:
-        lines.append("## ⚠️ Needs Action\n")
-        for item in action_items:
-            lines.append(
-                f"- **{item['subject']}** (from {item['sender']}, urgency {item['urgency_score']}/5) "
-                f"— {item['summary']}"
-            )
-        lines.append("")
+    lines.append(f"## {len(digest_items)} Urgent Message(s)\n")
 
-    lines.append("## All Messages (by urgency)\n")
-    for item in sorted_items:
+    for item in digest_items:
         lines.append(f"### {item['subject']}")
         lines.append(f"- **From:** {item['sender']} <{item['sender_email']}>")
         lines.append(f"- **Date:** {item['date_time']}")
+        lines.append(f"- **Urgency:** {item['urgency_score']}/5")
         lines.append(f"- **Summary:** {item['summary']}")
-        lines.append(f"- **Urgency:** {item['urgency_score']}/5 — {item['priority_reason']}")
-        lines.append(f"- **Needs action:** {item['needs_action']}")
-        lines.append(f"- **Needs attention:** {item['needs_attention']}")
-        lines.append(f"- **Dates mentioned:** {item['dates_mentioned']}")
         lines.append("")
 
     return "\n".join(lines)
 
-def save_digest(digest_items: list[dict]) -> str:
+
+def save_digest(digest_items: list[dict], overview: str = "") -> str:
     """Formats and writes the digest to a timestamped Markdown file in
     OUTPUTS_DIR. Returns the path written. Raises PersistenceError if
     the write fails."""
 
-    content = format_digest_markdown(digest_items)
+    content = format_digest_markdown(digest_items, overview)
 
     try:
         os.makedirs(OUTPUTS_DIR, exist_ok=True)

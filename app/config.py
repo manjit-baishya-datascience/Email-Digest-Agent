@@ -15,7 +15,10 @@ OUTPUTS_DIR = str(BASE_DIR / "outputs")
 OUTLOOK_INBOX_URL = "https://outlook.com"
 
 # Ollama model used for summarization
-LLM_MODEL = os.getenv("LLM_MODEL", "llama3.1")
+LLM_MODEL = os.getenv("LLM_MODEL", "email-digester")
 
 # Timeouts (milliseconds, matching Playwright's convention)
 MESSAGE_LIST_TIMEOUT_MS = 15000
+
+SUMMARY_MODEL = os.getenv("SUMMARY_MODEL", "email-digester")
+URGENCY_THRESHOLD = int(os.getenv("URGENCY_THRESHOLD", "3"))

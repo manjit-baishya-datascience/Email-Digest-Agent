@@ -36,3 +36,574 @@
 2026-08-23 02:17:02,340 | INFO     | app.digest | Digest saved to F:\Assignment\outputs\digest_20260823_021702.md
 2026-08-23 02:17:02,340 | INFO     | app.nodes | save_node: digest saved to F:\Assignment\outputs\digest_20260823_021702.md
 2026-08-23 02:17:02,341 | INFO     | app.main | Pipeline succeeded — digest saved to F:\Assignment\outputs\digest_20260823_021702.md
+2026-08-23 21:00:37,130 | INFO     | app.main | Received trigger request — starting pipeline run
+2026-08-23 21:01:09,952 | INFO     | app.scraper | Forwarded message resolved — original sender: Steam Support <noreply@steampowered.com>
+2026-08-23 21:01:12,597 | INFO     | app.scraper | No new messages after scrolling — reached end of inbox at 6
+2026-08-23 21:01:12,597 | INFO     | app.scraper | Scraping complete — 6 messages collected
+2026-08-23 21:01:13,045 | INFO     | app.nodes | scrape_node: collected 6 emails
+2026-08-23 21:01:13,047 | INFO     | app.summarizer | Summarizing 6 emails individually using model 'email-digester'
+2026-08-23 21:01:14,877 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-23 21:01:15,659 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-23 21:01:16,980 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-23 21:01:17,736 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-23 21:01:18,441 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-23 21:01:19,105 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-23 21:01:19,105 | INFO     | app.summarizer | Summarization complete — 6 of 6 emails summarized
+2026-08-23 21:01:19,106 | INFO     | app.nodes | summarize_node: produced 6 digest items
+2026-08-23 21:01:19,107 | INFO     | app.digest | Digest saved to F:\Assignment\outputs\digest_20260823_210119.md
+2026-08-23 21:01:19,108 | INFO     | app.nodes | save_node: digest saved to F:\Assignment\outputs\digest_20260823_210119.md
+2026-08-23 21:01:19,109 | INFO     | app.main | Pipeline succeeded — digest saved to F:\Assignment\outputs\digest_20260823_210119.md
+2026-08-24 00:36:43,845 | INFO     | app.main | Received trigger request — starting pipeline run
+2026-08-24 00:37:00,582 | INFO     | app.scraper | Forwarded message resolved — original sender: Steam Support <noreply@steampowered.com>
+2026-08-24 00:37:02,026 | INFO     | app.scraper | Forwarded message resolved — original sender: Steam Support <noreply@steampowered.com>
+2026-08-24 00:37:03,017 | INFO     | app.scraper | Forwarded message resolved — original sender: Steam Support <noreply@steampowered.com>
+2026-08-24 00:37:04,007 | INFO     | app.scraper | Forwarded message resolved — original sender: Steam Team <noreply@steampowered.com>
+2026-08-24 00:37:05,092 | INFO     | app.scraper | Forwarded message resolved — original sender: Steam Team <noreply@steampowered.com>
+2026-08-24 00:37:06,079 | INFO     | app.scraper | Forwarded message resolved — original sender: Steam Team <noreply@steampowered.com>
+2026-08-24 00:37:07,137 | INFO     | app.scraper | Forwarded message resolved — original sender:  <credit_cards@icici.bank.in>
+2026-08-24 00:37:08,146 | INFO     | app.scraper | Forwarded message resolved — original sender: Amazon Pay India <no-reply@amazonpay.in>
+2026-08-24 00:37:09,110 | INFO     | app.scraper | No new messages after scrolling — reached end of inbox at 14
+2026-08-24 00:37:09,110 | INFO     | app.scraper | Scraping complete — 14 messages collected
+2026-08-24 00:37:09,441 | INFO     | app.nodes | scrape_node: collected 14 emails
+2026-08-24 00:37:09,443 | INFO     | app.summarizer | Summarizing 14 emails individually using model 'llama3.1'
+2026-08-24 00:37:20,212 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-24 00:37:23,745 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-24 00:37:28,817 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-24 00:37:34,257 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-24 00:37:38,555 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-24 00:37:42,937 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-24 00:37:47,255 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-24 00:37:50,208 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-24 00:37:56,476 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-24 00:38:00,924 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-24 00:38:04,213 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-24 00:38:07,505 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-24 00:38:10,636 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-24 00:38:13,896 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-24 00:38:13,897 | INFO     | app.summarizer | Summarization complete — 14 of 14 emails summarized
+2026-08-24 00:38:13,897 | INFO     | app.nodes | summarize_node: produced 14 digest items
+2026-08-24 00:38:13,899 | INFO     | app.digest | Digest saved to F:\Assignment\outputs\digest_20260824_003813.md
+2026-08-24 00:38:13,899 | INFO     | app.nodes | save_node: digest saved to F:\Assignment\outputs\digest_20260824_003813.md
+2026-08-24 00:38:13,900 | INFO     | app.main | Pipeline succeeded — digest saved to F:\Assignment\outputs\digest_20260824_003813.md
+2026-08-24 00:58:06,672 | INFO     | app.main | Received trigger request — starting pipeline run
+2026-08-24 00:58:25,451 | INFO     | app.scraper | Forwarded message resolved — original sender: Steam Support <noreply@steampowered.com>
+2026-08-24 00:58:26,906 | INFO     | app.scraper | No new messages after scrolling — reached end of inbox at 6
+2026-08-24 00:58:26,906 | INFO     | app.scraper | Scraping complete — 6 messages collected
+2026-08-24 00:58:27,284 | INFO     | app.nodes | scrape_node: collected 6 emails
+2026-08-24 00:58:27,286 | INFO     | app.summarizer | Rating urgency for 6 emails using model 'llama3.1'
+2026-08-24 00:58:34,374 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-24 00:58:35,392 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-24 00:58:37,764 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-24 00:58:38,691 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-24 00:58:39,602 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-24 00:58:40,514 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-24 00:58:40,515 | INFO     | app.summarizer | 5 of 6 emails meet the urgency threshold (3) — generating summaries for those only
+2026-08-24 00:58:42,305 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-24 00:58:44,053 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-24 00:58:47,516 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-24 00:58:48,803 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-24 00:58:50,134 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-24 00:58:50,134 | INFO     | app.summarizer | Summarization complete — 5 urgent emails in final digest
+2026-08-24 00:58:50,135 | INFO     | app.nodes | summarize_node: produced 5 digest items
+2026-08-24 00:58:50,136 | INFO     | app.digest | Digest saved to F:\Assignment\outputs\digest_20260824_005850.md
+2026-08-24 00:58:50,137 | INFO     | app.nodes | save_node: digest saved to F:\Assignment\outputs\digest_20260824_005850.md
+2026-08-24 00:58:50,138 | INFO     | app.main | Pipeline succeeded — digest saved to F:\Assignment\outputs\digest_20260824_005850.md
+2026-08-24 01:08:21,717 | INFO     | app.main | Received trigger request — starting pipeline run
+2026-08-24 01:08:39,216 | INFO     | app.scraper | Forwarded message resolved — original sender: Steam Support <noreply@steampowered.com>
+2026-08-24 01:08:40,710 | INFO     | app.scraper | No new messages after scrolling — reached end of inbox at 6
+2026-08-24 01:08:40,710 | INFO     | app.scraper | Scraping complete — 6 messages collected
+2026-08-24 01:08:41,067 | INFO     | app.nodes | scrape_node: collected 6 emails
+2026-08-24 01:08:41,069 | INFO     | app.summarizer | Rating urgency for 6 emails using model 'llama3.1'
+2026-08-24 01:08:47,774 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-24 01:08:48,766 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-24 01:08:51,033 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-24 01:08:51,933 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-24 01:08:52,812 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-24 01:08:53,691 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-24 01:08:53,692 | INFO     | app.summarizer | 0 of 6 emails meet the urgency threshold (3) — generating summaries for those only
+2026-08-24 01:08:53,692 | INFO     | app.summarizer | Summarization complete — 0 urgent emails in final digest
+2026-08-24 01:08:53,692 | INFO     | app.nodes | summarize_node: produced 0 digest items
+2026-08-24 01:08:53,694 | INFO     | app.digest | Digest saved to F:\Assignment\outputs\digest_20260824_010853.md
+2026-08-24 01:08:53,694 | INFO     | app.nodes | save_node: digest saved to F:\Assignment\outputs\digest_20260824_010853.md
+2026-08-24 01:08:53,695 | INFO     | app.main | Pipeline succeeded — digest saved to F:\Assignment\outputs\digest_20260824_010853.md
+2026-08-24 01:13:33,441 | INFO     | app.main | Received trigger request — starting pipeline run
+2026-08-24 01:13:47,560 | INFO     | app.scraper | Forwarded message resolved — original sender: Steam Support <noreply@steampowered.com>
+2026-08-24 01:13:48,583 | INFO     | app.scraper | Forwarded message resolved — original sender: Steam Support <noreply@steampowered.com>
+2026-08-24 01:13:49,617 | INFO     | app.scraper | Forwarded message resolved — original sender: Steam Support <noreply@steampowered.com>
+2026-08-24 01:13:50,602 | INFO     | app.scraper | Forwarded message resolved — original sender: Steam Team <noreply@steampowered.com>
+2026-08-24 01:13:51,643 | INFO     | app.scraper | Forwarded message resolved — original sender: Steam Team <noreply@steampowered.com>
+2026-08-24 01:13:52,750 | INFO     | app.scraper | Forwarded message resolved — original sender: Steam Support <noreply@steampowered.com>
+2026-08-24 01:13:53,780 | INFO     | app.scraper | Forwarded message resolved — original sender: Steam Team <noreply@steampowered.com>
+2026-08-24 01:13:54,834 | INFO     | app.scraper | Forwarded message resolved — original sender: Steam Support <noreply@steampowered.com>
+2026-08-24 01:13:55,841 | INFO     | app.scraper | Forwarded message resolved — original sender: Steam Support <noreply@steampowered.com>
+2026-08-24 01:13:56,870 | INFO     | app.scraper | Forwarded message resolved — original sender: Steam Support <noreply@steampowered.com>
+2026-08-24 01:13:57,046 | INFO     | app.scraper | Forwarded message resolved — original sender: Steam Support <noreply@steampowered.com>
+2026-08-24 01:14:27,726 | ERROR    | app.nodes | scrape_node failed: Unexpected scraping failure: Locator.get_attribute: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator("[role=\"option\"]").nth(13)
+
+2026-08-24 01:14:27,727 | ERROR    | app.nodes | Pipeline failed at stage producing error_type=ScrapingError: Unexpected scraping failure: Locator.get_attribute: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator("[role=\"option\"]").nth(13)
+
+2026-08-24 01:14:27,728 | ERROR    | app.main | Pipeline failed: Unexpected scraping failure: Locator.get_attribute: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator("[role=\"option\"]").nth(13)
+
+2026-08-24 01:15:44,866 | INFO     | app.main | Received trigger request — starting pipeline run
+2026-08-24 01:15:58,261 | INFO     | app.scraper | Forwarded message resolved — original sender: Steam Support <noreply@steampowered.com>
+2026-08-24 01:15:59,755 | INFO     | app.scraper | Forwarded message resolved — original sender: Steam Support <noreply@steampowered.com>
+2026-08-24 01:16:00,768 | INFO     | app.scraper | Forwarded message resolved — original sender: Steam Support <noreply@steampowered.com>
+2026-08-24 01:16:01,797 | INFO     | app.scraper | Forwarded message resolved — original sender: Steam Team <noreply@steampowered.com>
+2026-08-24 01:16:02,874 | INFO     | app.scraper | Forwarded message resolved — original sender: Steam Team <noreply@steampowered.com>
+2026-08-24 01:16:04,884 | INFO     | app.scraper | Forwarded message resolved — original sender:  <credit_cards@icici.bank.in>
+2026-08-24 01:16:05,946 | INFO     | app.scraper | Forwarded message resolved — original sender:  <credit_cards@icici.bank.in>
+2026-08-24 01:16:06,948 | INFO     | app.scraper | Forwarded message resolved — original sender: Amazon Pay India <no-reply@amazonpay.in>
+2026-08-24 01:16:07,875 | INFO     | app.scraper | No new messages after scrolling — reached end of inbox at 14
+2026-08-24 01:16:07,875 | INFO     | app.scraper | Scraping complete — 14 messages collected
+2026-08-24 01:16:08,206 | INFO     | app.nodes | scrape_node: collected 14 emails
+2026-08-24 01:16:08,207 | INFO     | app.summarizer | Rating urgency for 14 emails using model 'llama3.1'
+2026-08-24 01:16:15,022 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-24 01:16:16,036 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-24 01:16:18,408 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-24 01:16:20,983 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-24 01:16:22,918 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-24 01:16:25,059 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-24 01:16:26,979 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-24 01:16:30,248 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-24 01:16:33,536 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-24 01:16:35,205 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-24 01:16:36,128 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-24 01:16:37,042 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-24 01:16:37,949 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-24 01:16:38,863 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-24 01:16:38,863 | INFO     | app.summarizer | 10 of 14 emails meet the urgency threshold (3) — generating summaries for those only
+2026-08-24 01:16:40,582 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-24 01:16:43,620 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-24 01:16:46,960 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-24 01:16:49,861 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-24 01:16:52,811 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-24 01:16:55,583 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-24 01:16:58,143 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-24 01:16:59,473 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-24 01:17:00,749 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-24 01:17:02,385 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-24 01:17:11,141 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-24 01:17:11,141 | INFO     | app.summarizer | Summarization complete — 10 urgent emails in final digest
+2026-08-24 01:17:11,142 | INFO     | app.nodes | summarize_node: produced 10 digest items
+2026-08-24 01:17:11,144 | INFO     | app.digest | Digest saved to F:\Assignment\outputs\digest_20260824_011711.md
+2026-08-24 01:17:11,144 | INFO     | app.nodes | save_node: digest saved to F:\Assignment\outputs\digest_20260824_011711.md
+2026-08-24 01:17:11,145 | INFO     | app.main | Pipeline succeeded — digest saved to F:\Assignment\outputs\digest_20260824_011711.md
+2026-08-24 01:19:32,870 | INFO     | app.main | Received trigger request — starting pipeline run
+2026-08-24 01:19:47,456 | INFO     | app.scraper | Forwarded message resolved — original sender: Steam Support <noreply@steampowered.com>
+2026-08-24 01:19:49,163 | INFO     | app.scraper | No new messages after scrolling — reached end of inbox at 6
+2026-08-24 01:19:49,163 | INFO     | app.scraper | Scraping complete — 6 messages collected
+2026-08-24 01:19:49,516 | INFO     | app.nodes | scrape_node: collected 6 emails
+2026-08-24 01:19:49,518 | INFO     | app.summarizer | Rating urgency for 6 emails using model 'llama3.1'
+2026-08-24 01:19:50,561 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-24 01:19:51,597 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-24 01:19:53,972 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-24 01:19:54,900 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-24 01:19:55,811 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-24 01:19:56,724 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-24 01:19:56,725 | INFO     | app.summarizer | 3 of 6 emails meet the urgency threshold (3) — generating summaries for those only
+2026-08-24 01:19:57,974 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-24 01:19:58,852 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-24 01:20:00,175 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-24 01:20:03,450 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-24 01:20:03,451 | INFO     | app.summarizer | Summarization complete — 3 urgent emails in final digest
+2026-08-24 01:20:03,451 | INFO     | app.nodes | summarize_node: produced 3 digest items
+2026-08-24 01:20:03,452 | INFO     | app.digest | Digest saved to F:\Assignment\outputs\digest_20260824_012003.md
+2026-08-24 01:20:03,453 | INFO     | app.nodes | save_node: digest saved to F:\Assignment\outputs\digest_20260824_012003.md
+2026-08-24 01:20:03,453 | INFO     | app.main | Pipeline succeeded — digest saved to F:\Assignment\outputs\digest_20260824_012003.md
+2026-08-24 01:21:36,923 | INFO     | app.main | Received trigger request — starting pipeline run
+2026-08-24 01:21:51,122 | INFO     | app.scraper | Forwarded message resolved — original sender: Steam Support <noreply@steampowered.com>
+2026-08-24 01:21:52,145 | INFO     | app.scraper | Forwarded message resolved — original sender: Steam Support <noreply@steampowered.com>
+2026-08-24 01:21:53,162 | INFO     | app.scraper | Forwarded message resolved — original sender: Steam Support <noreply@steampowered.com>
+2026-08-24 01:21:54,243 | INFO     | app.scraper | Forwarded message resolved — original sender: Steam Team <noreply@steampowered.com>
+2026-08-24 01:21:55,265 | INFO     | app.scraper | Forwarded message resolved — original sender: Steam Team <noreply@steampowered.com>
+2026-08-24 01:21:56,749 | INFO     | app.scraper | Forwarded message resolved — original sender: Steam Support <noreply@steampowered.com>
+2026-08-24 01:22:27,120 | ERROR    | app.nodes | scrape_node failed: Unexpected scraping failure: Locator.get_attribute: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator("[role=\"option\"]").nth(8)
+
+2026-08-24 01:22:27,121 | ERROR    | app.nodes | Pipeline failed at stage producing error_type=ScrapingError: Unexpected scraping failure: Locator.get_attribute: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator("[role=\"option\"]").nth(8)
+
+2026-08-24 01:22:27,122 | ERROR    | app.main | Pipeline failed: Unexpected scraping failure: Locator.get_attribute: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator("[role=\"option\"]").nth(8)
+
+2026-08-24 01:22:48,536 | INFO     | app.main | Received trigger request — starting pipeline run
+2026-08-24 01:23:02,292 | INFO     | app.scraper | Forwarded message resolved — original sender: Steam Support <noreply@steampowered.com>
+2026-08-24 01:23:03,790 | INFO     | app.scraper | Forwarded message resolved — original sender: Steam Support <noreply@steampowered.com>
+2026-08-24 01:23:04,816 | INFO     | app.scraper | Forwarded message resolved — original sender: Steam Support <noreply@steampowered.com>
+2026-08-24 01:23:05,838 | INFO     | app.scraper | Forwarded message resolved — original sender: Steam Team <noreply@steampowered.com>
+2026-08-24 01:23:06,926 | INFO     | app.scraper | Forwarded message resolved — original sender: Steam Team <noreply@steampowered.com>
+2026-08-24 01:23:08,031 | INFO     | app.scraper | Forwarded message resolved — original sender: Steam Support <noreply@steampowered.com>
+2026-08-24 01:23:08,222 | INFO     | app.scraper | Forwarded message resolved — original sender: Steam Support <noreply@steampowered.com>
+2026-08-24 01:23:38,545 | ERROR    | app.nodes | scrape_node failed: Unexpected scraping failure: Locator.get_attribute: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator("[role=\"option\"]").nth(9)
+
+2026-08-24 01:23:38,546 | ERROR    | app.nodes | Pipeline failed at stage producing error_type=ScrapingError: Unexpected scraping failure: Locator.get_attribute: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator("[role=\"option\"]").nth(9)
+
+2026-08-24 01:23:38,547 | ERROR    | app.main | Pipeline failed: Unexpected scraping failure: Locator.get_attribute: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator("[role=\"option\"]").nth(9)
+
+2026-08-24 01:24:17,093 | INFO     | app.main | Received trigger request — starting pipeline run
+2026-08-24 01:24:33,821 | INFO     | app.scraper | Forwarded message resolved — original sender: Steam Support <noreply@steampowered.com>
+2026-08-24 01:24:34,884 | INFO     | app.scraper | Forwarded message resolved — original sender: Steam Support <noreply@steampowered.com>
+2026-08-24 01:24:35,937 | INFO     | app.scraper | Forwarded message resolved — original sender: Steam Support <noreply@steampowered.com>
+2026-08-24 01:24:37,015 | INFO     | app.scraper | Forwarded message resolved — original sender: Steam Team <noreply@steampowered.com>
+2026-08-24 01:24:38,139 | INFO     | app.scraper | Forwarded message resolved — original sender: Steam Team <noreply@steampowered.com>
+2026-08-24 01:24:39,227 | INFO     | app.scraper | Forwarded message resolved — original sender: Steam Support <noreply@steampowered.com>
+2026-08-24 01:24:40,313 | INFO     | app.scraper | Forwarded message resolved — original sender: Steam Team <noreply@steampowered.com>
+2026-08-24 01:24:41,402 | INFO     | app.scraper | Forwarded message resolved — original sender: Steam Support <noreply@steampowered.com>
+2026-08-24 01:24:42,498 | INFO     | app.scraper | Forwarded message resolved — original sender: Steam Support <noreply@steampowered.com>
+2026-08-24 01:24:43,609 | INFO     | app.scraper | Forwarded message resolved — original sender: Steam Support <noreply@steampowered.com>
+2026-08-24 01:24:45,333 | INFO     | app.scraper | Forwarded message resolved — original sender: Steam Support <noreply@steampowered.com>
+2026-08-24 01:26:04,544 | INFO     | app.main | Received trigger request — starting pipeline run
+2026-08-24 01:26:24,642 | INFO     | app.scraper | Forwarded message resolved — original sender: Steam Support <noreply@steampowered.com>
+2026-08-24 01:26:25,821 | INFO     | app.scraper | Forwarded message resolved — original sender: Steam Support <noreply@steampowered.com>
+2026-08-24 01:26:26,877 | INFO     | app.scraper | Forwarded message resolved — original sender: Steam Support <noreply@steampowered.com>
+2026-08-24 01:26:28,156 | INFO     | app.scraper | Forwarded message resolved — original sender: Steam Team <noreply@steampowered.com>
+2026-08-24 01:26:29,244 | INFO     | app.scraper | Forwarded message resolved — original sender: Steam Team <noreply@steampowered.com>
+2026-08-24 01:26:30,318 | INFO     | app.scraper | Forwarded message resolved — original sender: Steam Support <noreply@steampowered.com>
+2026-08-24 01:26:31,977 | INFO     | app.scraper | Forwarded message resolved — original sender: Steam Team <noreply@steampowered.com>
+2026-08-24 01:26:34,079 | INFO     | app.scraper | Forwarded message resolved — original sender:  <credit_cards@icici.bank.in>
+2026-08-24 01:26:35,222 | INFO     | app.scraper | Forwarded message resolved — original sender: CRED <protect@cred.club>
+2026-08-24 01:26:36,331 | INFO     | app.scraper | Forwarded message resolved — original sender:  <credit_cards@icici.bank.in>
+2026-08-24 01:26:37,422 | INFO     | app.scraper | Forwarded message resolved — original sender:  <credit_cards@icici.bank.in>
+2026-08-24 01:26:38,535 | INFO     | app.scraper | Forwarded message resolved — original sender: Amazon Pay India <no-reply@amazonpay.in>
+2026-08-24 01:26:38,663 | INFO     | app.scraper | Reached target of 15 messages
+2026-08-24 01:26:38,663 | INFO     | app.scraper | Scraping complete — 15 messages collected
+2026-08-24 01:26:39,018 | INFO     | app.nodes | scrape_node: collected 15 emails
+2026-08-24 01:26:39,019 | INFO     | app.summarizer | Rating urgency for 15 emails using model 'llama3.1'
+2026-08-24 01:26:46,083 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-24 01:26:47,097 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-24 01:26:49,463 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-24 01:26:52,041 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-24 01:26:53,971 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-24 01:26:56,125 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-24 01:26:58,054 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-24 01:27:00,451 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-24 01:27:02,405 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-24 01:27:05,338 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-24 01:27:07,734 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-24 01:27:11,019 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-24 01:27:14,293 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-24 01:27:15,965 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-24 01:27:16,889 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-24 01:27:16,889 | INFO     | app.summarizer | 11 of 15 emails meet the urgency threshold (3) — generating summaries for those only
+2026-08-24 01:27:18,366 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-24 01:27:21,308 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-24 01:27:24,729 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-24 01:27:27,770 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-24 01:27:30,732 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-24 01:27:34,465 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-24 01:27:37,688 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-24 01:27:40,995 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-24 01:27:45,540 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-24 01:27:48,081 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-24 01:27:49,370 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-24 01:28:00,836 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-24 01:28:00,836 | INFO     | app.summarizer | Summarization complete — 11 urgent emails in final digest
+2026-08-24 01:28:00,836 | INFO     | app.nodes | summarize_node: produced 11 digest items
+2026-08-24 01:28:00,838 | INFO     | app.digest | Digest saved to F:\Assignment\outputs\digest_20260824_012800.md
+2026-08-24 01:28:00,838 | INFO     | app.nodes | save_node: digest saved to F:\Assignment\outputs\digest_20260824_012800.md
+2026-08-24 01:28:00,839 | INFO     | app.main | Pipeline succeeded — digest saved to F:\Assignment\outputs\digest_20260824_012800.md
+2026-08-24 01:33:47,782 | INFO     | app.main | Received trigger request — starting pipeline run
+2026-08-24 01:34:03,700 | INFO     | app.scraper | Forwarded message resolved — original sender: Steam Support <noreply@steampowered.com>
+2026-08-24 01:34:05,212 | INFO     | app.scraper | Forwarded message resolved — original sender: Steam Support <noreply@steampowered.com>
+2026-08-24 01:34:06,253 | INFO     | app.scraper | Forwarded message resolved — original sender: Steam Support <noreply@steampowered.com>
+2026-08-24 01:34:07,303 | INFO     | app.scraper | Forwarded message resolved — original sender: Steam Team <noreply@steampowered.com>
+2026-08-24 01:34:08,509 | INFO     | app.scraper | Forwarded message resolved — original sender: Steam Team <noreply@steampowered.com>
+2026-08-24 01:34:09,607 | INFO     | app.scraper | Forwarded message resolved — original sender: Steam Support <noreply@steampowered.com>
+2026-08-24 01:34:10,657 | INFO     | app.scraper | Forwarded message resolved — original sender: Steam Team <noreply@steampowered.com>
+2026-08-24 01:34:11,720 | INFO     | app.scraper | Forwarded message resolved — original sender: Steam Support <noreply@steampowered.com>
+2026-08-24 01:34:12,781 | INFO     | app.scraper | Forwarded message resolved — original sender: Steam Support <noreply@steampowered.com>
+2026-08-24 01:34:13,886 | INFO     | app.scraper | Forwarded message resolved — original sender: Steam Support <noreply@steampowered.com>
+2026-08-24 01:34:15,753 | INFO     | app.scraper | Forwarded message resolved — original sender: Steam Support <noreply@steampowered.com>
+2026-08-24 01:34:28,372 | ERROR    | app.nodes | scrape_node failed: Unexpected scraping failure: Locator.get_attribute: Target page, context or browser has been closed
+Call log:
+  - waiting for locator("[role=\"option\"]").nth(13)
+
+2026-08-24 01:34:28,373 | ERROR    | app.nodes | Pipeline failed at stage producing error_type=ScrapingError: Unexpected scraping failure: Locator.get_attribute: Target page, context or browser has been closed
+Call log:
+  - waiting for locator("[role=\"option\"]").nth(13)
+
+2026-08-24 01:34:28,374 | ERROR    | app.main | Pipeline failed: Unexpected scraping failure: Locator.get_attribute: Target page, context or browser has been closed
+Call log:
+  - waiting for locator("[role=\"option\"]").nth(13)
+
+2026-08-24 01:35:27,353 | INFO     | app.main | Received trigger request — starting pipeline run
+2026-08-24 01:35:46,755 | INFO     | app.scraper | Forwarded message resolved — original sender: Steam Support <noreply@steampowered.com>
+2026-08-24 01:35:48,025 | INFO     | app.scraper | Forwarded message resolved — original sender: Steam Support <noreply@steampowered.com>
+2026-08-24 01:35:49,209 | INFO     | app.scraper | Forwarded message resolved — original sender: Steam Support <noreply@steampowered.com>
+2026-08-24 01:35:50,274 | INFO     | app.scraper | Forwarded message resolved — original sender: Steam Team <noreply@steampowered.com>
+2026-08-24 01:35:51,430 | INFO     | app.scraper | Forwarded message resolved — original sender: Steam Team <noreply@steampowered.com>
+2026-08-24 01:35:52,477 | INFO     | app.scraper | Forwarded message resolved — original sender: Steam Support <noreply@steampowered.com>
+2026-08-24 01:35:54,073 | INFO     | app.scraper | Forwarded message resolved — original sender: Steam Team <noreply@steampowered.com>
+2026-08-24 01:36:24,554 | ERROR    | app.nodes | scrape_node failed: Unexpected scraping failure: Locator.get_attribute: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator("[role=\"option\"]").nth(9)
+
+2026-08-24 01:36:24,556 | ERROR    | app.nodes | Pipeline failed at stage producing error_type=ScrapingError: Unexpected scraping failure: Locator.get_attribute: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator("[role=\"option\"]").nth(9)
+
+2026-08-24 01:36:24,556 | ERROR    | app.main | Pipeline failed: Unexpected scraping failure: Locator.get_attribute: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator("[role=\"option\"]").nth(9)
+
+2026-08-24 01:39:06,965 | INFO     | app.main | Received trigger request — starting pipeline run
+2026-08-24 01:39:30,430 | INFO     | app.scraper | Forwarded message resolved — original sender: Steam Support <noreply@steampowered.com>
+2026-08-24 01:39:31,549 | INFO     | app.scraper | Forwarded message resolved — original sender: Steam Support <noreply@steampowered.com>
+2026-08-24 01:39:32,658 | INFO     | app.scraper | Forwarded message resolved — original sender: Steam Support <noreply@steampowered.com>
+2026-08-24 01:39:33,740 | INFO     | app.scraper | Forwarded message resolved — original sender: Steam Team <noreply@steampowered.com>
+2026-08-24 01:39:34,817 | INFO     | app.scraper | Forwarded message resolved — original sender: Steam Team <noreply@steampowered.com>
+2026-08-24 01:39:36,360 | INFO     | app.scraper | Forwarded message resolved — original sender: Steam Support <noreply@steampowered.com>
+2026-08-24 01:40:06,956 | ERROR    | app.nodes | scrape_node failed: Unexpected scraping failure: Locator.get_attribute: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator("[role=\"option\"]").nth(8)
+
+2026-08-24 01:40:06,958 | ERROR    | app.nodes | Pipeline failed at stage producing error_type=ScrapingError: Unexpected scraping failure: Locator.get_attribute: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator("[role=\"option\"]").nth(8)
+
+2026-08-24 01:40:06,959 | ERROR    | app.main | Pipeline failed: Unexpected scraping failure: Locator.get_attribute: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator("[role=\"option\"]").nth(8)
+
+2026-08-24 01:43:09,404 | INFO     | app.main | Received trigger request — starting pipeline run
+2026-08-24 01:43:27,240 | INFO     | app.scraper | Forwarded message resolved — original sender: Steam Support <noreply@steampowered.com>
+2026-08-24 01:43:28,344 | INFO     | app.scraper | Forwarded message resolved — original sender: Steam Support <noreply@steampowered.com>
+2026-08-24 01:43:29,510 | INFO     | app.scraper | Forwarded message resolved — original sender: Steam Support <noreply@steampowered.com>
+2026-08-24 01:43:30,655 | INFO     | app.scraper | Forwarded message resolved — original sender: Steam Team <noreply@steampowered.com>
+2026-08-24 01:43:32,249 | INFO     | app.scraper | Forwarded message resolved — original sender: Steam Team <noreply@steampowered.com>
+2026-08-24 01:43:34,357 | INFO     | app.scraper | Forwarded message resolved — original sender:  <credit_cards@icici.bank.in>
+2026-08-24 01:43:35,496 | INFO     | app.scraper | Forwarded message resolved — original sender:  <credit_cards@icici.bank.in>
+2026-08-24 01:43:36,632 | INFO     | app.scraper | Forwarded message resolved — original sender: Amazon Pay India <no-reply@amazonpay.in>
+2026-08-24 01:43:37,473 | INFO     | app.scraper | No new messages after scrolling — reached end of inbox at 13
+2026-08-24 01:43:37,473 | INFO     | app.scraper | Scraping complete — 13 messages collected
+2026-08-24 01:43:37,878 | INFO     | app.nodes | scrape_node: collected 13 emails
+2026-08-24 01:43:37,880 | INFO     | app.summarizer | Rating urgency for 13 emails using model 'llama3.1'
+2026-08-24 01:43:51,968 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-24 01:43:52,980 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-24 01:43:55,336 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-24 01:43:57,903 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-24 01:43:59,811 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-24 01:44:01,940 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-24 01:44:03,859 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-24 01:44:07,116 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-24 01:44:10,363 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-24 01:44:12,027 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-24 01:44:12,944 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-24 01:44:13,859 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-24 01:44:14,773 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-24 01:44:14,773 | INFO     | app.summarizer | 8 of 13 emails meet the urgency threshold (3) — generating summaries for those only
+2026-08-24 01:44:16,591 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-24 01:44:18,333 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-24 01:44:22,820 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-24 01:44:25,210 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-24 01:44:28,194 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-24 01:44:30,645 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-24 01:44:32,102 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-24 01:44:33,860 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-24 01:44:43,303 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-24 01:44:43,304 | INFO     | app.summarizer | Summarization complete — 8 urgent emails in final digest
+2026-08-24 01:46:49,465 | INFO     | app.main | Received trigger request — starting pipeline run
+2026-08-24 01:47:06,239 | INFO     | app.scraper | Forwarded message resolved — original sender: Steam Support <noreply@steampowered.com>
+2026-08-24 01:47:07,330 | INFO     | app.scraper | Forwarded message resolved — original sender: Steam Support <noreply@steampowered.com>
+2026-08-24 01:47:08,411 | INFO     | app.scraper | Forwarded message resolved — original sender: Steam Support <noreply@steampowered.com>
+2026-08-24 01:47:09,496 | INFO     | app.scraper | Forwarded message resolved — original sender: Steam Team <noreply@steampowered.com>
+2026-08-24 01:47:10,693 | INFO     | app.scraper | Forwarded message resolved — original sender: Steam Team <noreply@steampowered.com>
+2026-08-24 01:47:11,761 | INFO     | app.scraper | Forwarded message resolved — original sender: Steam Support <noreply@steampowered.com>
+2026-08-24 01:47:13,337 | INFO     | app.scraper | Forwarded message resolved — original sender: Steam Team <noreply@steampowered.com>
+2026-08-24 01:47:21,084 | WARNING  | app.scraper | Skipping row 9 entirely — failed to read: Locator.get_attribute: Target page, context or browser has been closed
+Call log:
+  - waiting for locator("[role=\"option\"]").nth(9)
+
+2026-08-24 01:47:21,214 | ERROR    | app.nodes | scrape_node failed: Unexpected scraping failure: Locator.evaluate: Target page, context or browser has been closed
+2026-08-24 01:47:21,216 | ERROR    | app.nodes | Pipeline failed at stage producing error_type=ScrapingError: Unexpected scraping failure: Locator.evaluate: Target page, context or browser has been closed
+2026-08-24 01:47:21,216 | ERROR    | app.main | Pipeline failed: Unexpected scraping failure: Locator.evaluate: Target page, context or browser has been closed
+2026-08-24 01:47:37,143 | INFO     | app.main | Received trigger request — starting pipeline run
+2026-08-24 01:47:54,439 | INFO     | app.scraper | Forwarded message resolved — original sender: Steam Support <noreply@steampowered.com>
+2026-08-24 01:47:55,570 | INFO     | app.scraper | Forwarded message resolved — original sender: Steam Support <noreply@steampowered.com>
+2026-08-24 01:47:56,691 | INFO     | app.scraper | Forwarded message resolved — original sender: Steam Support <noreply@steampowered.com>
+2026-08-24 01:47:57,756 | INFO     | app.scraper | Forwarded message resolved — original sender: Steam Team <noreply@steampowered.com>
+2026-08-24 01:47:58,834 | INFO     | app.scraper | Forwarded message resolved — original sender: Steam Team <noreply@steampowered.com>
+2026-08-24 01:47:59,917 | INFO     | app.scraper | Forwarded message resolved — original sender: Steam Support <noreply@steampowered.com>
+2026-08-24 01:48:00,974 | INFO     | app.scraper | Forwarded message resolved — original sender: Steam Team <noreply@steampowered.com>
+2026-08-24 01:48:02,032 | INFO     | app.scraper | Forwarded message resolved — original sender: Steam Support <noreply@steampowered.com>
+2026-08-24 01:48:03,097 | INFO     | app.scraper | Forwarded message resolved — original sender: Steam Support <noreply@steampowered.com>
+2026-08-24 01:48:04,283 | INFO     | app.scraper | Forwarded message resolved — original sender: Steam Support <noreply@steampowered.com>
+2026-08-24 01:48:08,199 | INFO     | app.scraper | Forwarded message resolved — original sender: Steam Support <noreply@steampowered.com>
+2026-08-24 01:48:35,310 | WARNING  | app.scraper | Skipping row 13 entirely — failed to read: Locator.get_attribute: Target page, context or browser has been closed
+Call log:
+  - waiting for locator("[role=\"option\"]").nth(13)
+
+2026-08-24 01:49:24,847 | INFO     | app.main | Received trigger request — starting pipeline run
+2026-08-24 01:49:42,614 | INFO     | app.scraper | Forwarded message resolved — original sender: Steam Support <noreply@steampowered.com>
+2026-08-24 01:49:44,140 | INFO     | app.scraper | Forwarded message resolved — original sender: Steam Support <noreply@steampowered.com>
+2026-08-24 01:49:45,288 | INFO     | app.scraper | Forwarded message resolved — original sender: Steam Support <noreply@steampowered.com>
+2026-08-24 01:49:46,615 | INFO     | app.scraper | Forwarded message resolved — original sender: Steam Team <noreply@steampowered.com>
+2026-08-24 01:49:47,687 | INFO     | app.scraper | Forwarded message resolved — original sender: Steam Team <noreply@steampowered.com>
+2026-08-24 01:49:49,065 | INFO     | app.scraper | Forwarded message resolved — original sender: Steam Support <noreply@steampowered.com>
+2026-08-24 01:49:50,153 | INFO     | app.scraper | Forwarded message resolved — original sender: Steam Team <noreply@steampowered.com>
+2026-08-24 01:49:51,281 | INFO     | app.scraper | Forwarded message resolved — original sender: Steam Support <noreply@steampowered.com>
+2026-08-24 01:49:52,621 | INFO     | app.scraper | Forwarded message resolved — original sender: Steam Support <noreply@steampowered.com>
+2026-08-24 01:49:53,715 | INFO     | app.scraper | Forwarded message resolved — original sender: Steam Support <noreply@steampowered.com>
+2026-08-24 01:49:55,546 | INFO     | app.scraper | Forwarded message resolved — original sender: Steam Support <noreply@steampowered.com>
+2026-08-24 01:50:03,809 | INFO     | app.scraper | Forwarded message resolved — original sender: Steam Team <noreply@steampowered.com>
+2026-08-24 01:50:06,261 | INFO     | app.scraper | Forwarded message resolved — original sender:  <credit_cards@icici.bank.in>
+2026-08-24 01:50:06,261 | INFO     | app.scraper | Reached target of 15 messages
+2026-08-24 01:50:06,261 | INFO     | app.scraper | Scraping complete — 15 messages collected
+2026-08-24 01:50:06,788 | INFO     | app.nodes | scrape_node: collected 15 emails
+2026-08-24 01:50:06,789 | INFO     | app.summarizer | Rating urgency for 15 emails using model 'llama3.1'
+2026-08-24 01:50:13,869 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-24 01:50:14,893 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-24 01:50:17,262 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-24 01:50:19,850 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-24 01:50:21,765 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-24 01:50:23,924 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-24 01:50:26,081 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-24 01:50:28,692 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-24 01:50:30,639 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-24 01:50:33,028 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-24 01:50:35,427 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-24 01:50:37,361 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-24 01:50:37,841 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-24 01:50:38,309 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-24 01:50:41,238 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-24 01:50:41,238 | INFO     | app.summarizer | 12 of 15 emails meet the urgency threshold (3) — generating summaries for those only
+2026-08-24 01:50:42,723 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-24 01:50:46,333 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-24 01:50:49,735 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-24 01:50:52,463 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-24 01:50:55,462 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-24 01:50:58,799 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-24 01:51:02,311 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-24 01:51:05,295 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-24 01:51:08,373 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-24 01:51:11,448 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-24 01:51:14,101 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-24 01:51:17,750 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-24 01:51:25,379 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-24 01:51:25,380 | INFO     | app.summarizer | Summarization complete — 12 urgent emails, overview generated
+2026-08-24 01:51:25,381 | INFO     | app.nodes | DEBUG: overview in state = Multiple urgent emails require attention, including Steam account security alerts regarding login attempts from new devices, potential password changes, and login credential recovery attempts; a Microsoft account security update; and a notification from ICICI Bank regarding a declined transaction on a credit card due to disabled international online transactions.
+2026-08-24 01:51:25,382 | INFO     | app.digest | Digest saved to F:\Assignment\outputs\digest_20260824_015125.md
+2026-08-24 01:51:25,382 | INFO     | app.nodes | save_node: digest saved to F:\Assignment\outputs\digest_20260824_015125.md
+2026-08-24 01:51:25,383 | INFO     | app.main | Pipeline succeeded — digest saved to F:\Assignment\outputs\digest_20260824_015125.md
+2026-08-24 23:50:11,629 | INFO     | app.main | Received trigger request — starting pipeline run
+2026-08-24 23:50:44,166 | INFO     | app.scraper | Forwarded message resolved — original sender: Steam Support <noreply@steampowered.com>
+2026-08-24 23:50:46,077 | INFO     | app.scraper | Forwarded message resolved — original sender: Steam Support <noreply@steampowered.com>
+2026-08-24 23:50:47,369 | INFO     | app.scraper | Forwarded message resolved — original sender: Steam Support <noreply@steampowered.com>
+2026-08-24 23:50:48,498 | INFO     | app.scraper | Forwarded message resolved — original sender: Steam Team <noreply@steampowered.com>
+2026-08-24 23:50:49,649 | INFO     | app.scraper | Forwarded message resolved — original sender: Steam Team <noreply@steampowered.com>
+2026-08-24 23:50:50,747 | INFO     | app.scraper | Forwarded message resolved — original sender: Steam Support <noreply@steampowered.com>
+2026-08-24 23:50:52,578 | INFO     | app.scraper | Forwarded message resolved — original sender: Steam Team <noreply@steampowered.com>
+2026-08-24 23:51:22,596 | WARNING  | app.scraper | Skipping row 9 entirely — failed to read: Locator.get_attribute: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator("[role=\"option\"]").nth(9)
+
+2026-08-24 23:51:24,726 | INFO     | app.scraper | Forwarded message resolved — original sender:  <credit_cards@icici.bank.in>
+2026-08-24 23:51:25,846 | INFO     | app.scraper | Forwarded message resolved — original sender: CRED <protect@cred.club>
+2026-08-24 23:51:26,966 | INFO     | app.scraper | Forwarded message resolved — original sender:  <credit_cards@icici.bank.in>
+2026-08-24 23:51:27,816 | INFO     | app.scraper | Forwarded message resolved — original sender:  <credit_cards@icici.bank.in>
+2026-08-24 23:51:29,077 | INFO     | app.scraper | Forwarded message resolved — original sender: Amazon Pay India <no-reply@amazonpay.in>
+2026-08-24 23:51:29,235 | INFO     | app.scraper | Reached target of 15 messages
+2026-08-24 23:51:29,236 | INFO     | app.scraper | Scraping complete — 15 messages collected
+2026-08-24 23:51:29,985 | INFO     | app.nodes | scrape_node: collected 15 emails
+2026-08-24 23:51:29,987 | INFO     | app.summarizer | Summarizing 15 emails using model 'llama3.1'
+2026-08-24 23:51:45,974 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-24 23:51:48,429 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-24 23:51:52,068 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-24 23:51:55,950 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-24 23:51:59,510 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-24 23:52:02,820 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-24 23:52:06,242 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-24 23:52:10,003 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-24 23:52:13,168 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-24 23:52:18,457 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-24 23:52:21,945 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-24 23:52:27,235 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-24 23:52:31,893 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-24 23:52:34,805 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-24 23:52:36,781 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-24 23:52:36,781 | INFO     | app.summarizer | 15 of 15 emails meet the urgency threshold (3)
+2026-08-24 23:52:47,122 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-24 23:52:47,123 | INFO     | app.summarizer | Summarization complete — 15 urgent emails, overview generated
+2026-08-24 23:52:47,124 | INFO     | app.nodes | DEBUG: overview in state = Multiple urgent emails have been received regarding security and account alerts: Steam account login attempts, security breaches, unauthorized sign-ins, and notifications for payment due dates, including a Steam account reset password recommendation, a Google Account warning, and notifications from ICICI Bank and Punjab National Bank regarding credit card transactions and billing, as well as a Microsoft account security info addition and a new sign-in detected from India.
+2026-08-24 23:52:47,125 | INFO     | app.digest | Digest saved to F:\Assignment\outputs\digest_20260824_235247.md
+2026-08-24 23:52:47,125 | INFO     | app.nodes | save_node: digest saved to F:\Assignment\outputs\digest_20260824_235247.md
+2026-08-24 23:52:47,126 | INFO     | app.main | Pipeline succeeded — digest saved to F:\Assignment\outputs\digest_20260824_235247.md
+2026-08-24 23:56:05,341 | INFO     | app.main | Received trigger request — starting pipeline run
+2026-08-24 23:56:22,326 | WARNING  | app.scraper | Deep scrape failed for message AQQkADAwATM0MDAAMi1hZWM4LWYxMQAwLTAwAi0wMAoAEAAiS9pFxYEGTISmf0TeqYy6: Page.wait_for_selector: Target page, context or browser has been closed
+Call log:
+  - waiting for locator("[role=\"document\"]") to be visible
+
+2026-08-24 23:56:22,331 | WARNING  | app.scraper | Skipping row 2 entirely — failed to read: Locator.get_attribute: Target page, context or browser has been closed
+2026-08-24 23:56:22,335 | WARNING  | app.scraper | Skipping row 3 entirely — failed to read: Locator.get_attribute: Target page, context or browser has been closed
+2026-08-24 23:56:22,338 | WARNING  | app.scraper | Skipping row 4 entirely — failed to read: Locator.get_attribute: Target page, context or browser has been closed
+2026-08-24 23:56:22,342 | WARNING  | app.scraper | Skipping row 5 entirely — failed to read: Locator.get_attribute: Target page, context or browser has been closed
+2026-08-24 23:56:22,345 | WARNING  | app.scraper | Skipping row 6 entirely — failed to read: Locator.get_attribute: Target page, context or browser has been closed
+2026-08-24 23:56:22,348 | WARNING  | app.scraper | Skipping row 7 entirely — failed to read: Locator.get_attribute: Target page, context or browser has been closed
+2026-08-24 23:56:22,351 | WARNING  | app.scraper | Skipping row 8 entirely — failed to read: Locator.get_attribute: Target page, context or browser has been closed
+2026-08-24 23:56:22,355 | WARNING  | app.scraper | Skipping row 9 entirely — failed to read: Locator.get_attribute: Target page, context or browser has been closed
+2026-08-24 23:56:22,359 | WARNING  | app.scraper | Skipping row 10 entirely — failed to read: Locator.get_attribute: Target page, context or browser has been closed
+2026-08-24 23:56:22,362 | WARNING  | app.scraper | Skipping row 11 entirely — failed to read: Locator.get_attribute: Target page, context or browser has been closed
+2026-08-24 23:56:22,365 | WARNING  | app.scraper | Skipping row 12 entirely — failed to read: Locator.get_attribute: Target page, context or browser has been closed
+2026-08-24 23:56:22,368 | WARNING  | app.scraper | Skipping row 13 entirely — failed to read: Locator.get_attribute: Target page, context or browser has been closed
+2026-08-24 23:56:22,389 | ERROR    | app.nodes | scrape_node failed: Unexpected scraping failure: Locator.evaluate: Target page, context or browser has been closed
+2026-08-24 23:56:22,390 | ERROR    | app.nodes | Pipeline failed at stage producing error_type=ScrapingError: Unexpected scraping failure: Locator.evaluate: Target page, context or browser has been closed
+2026-08-24 23:56:22,391 | ERROR    | app.main | Pipeline failed: Unexpected scraping failure: Locator.evaluate: Target page, context or browser has been closed
+2026-08-24 23:56:25,938 | INFO     | app.main | Received trigger request — starting pipeline run
+2026-08-24 23:56:43,324 | INFO     | app.scraper | Forwarded message resolved — original sender: Steam Support <noreply@steampowered.com>
+2026-08-24 23:56:44,392 | INFO     | app.scraper | Forwarded message resolved — original sender: Steam Support <noreply@steampowered.com>
+2026-08-24 23:56:45,493 | INFO     | app.scraper | Forwarded message resolved — original sender: Steam Support <noreply@steampowered.com>
+2026-08-24 23:56:46,595 | INFO     | app.scraper | Forwarded message resolved — original sender: Steam Team <noreply@steampowered.com>
+2026-08-24 23:56:47,748 | INFO     | app.scraper | Forwarded message resolved — original sender: Steam Team <noreply@steampowered.com>
+2026-08-24 23:56:48,881 | INFO     | app.scraper | Forwarded message resolved — original sender: Steam Support <noreply@steampowered.com>
+2026-08-24 23:56:50,004 | INFO     | app.scraper | Forwarded message resolved — original sender: Steam Team <noreply@steampowered.com>
+2026-08-24 23:56:51,066 | INFO     | app.scraper | Forwarded message resolved — original sender: Steam Support <noreply@steampowered.com>
+2026-08-24 23:56:51,293 | INFO     | app.scraper | Forwarded message resolved — original sender: Steam Support <noreply@steampowered.com>
+2026-08-24 23:57:21,309 | WARNING  | app.scraper | Skipping row 11 entirely — failed to read: Locator.get_attribute: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator("[role=\"option\"]").nth(11)
+
+2026-08-24 23:57:22,035 | INFO     | app.scraper | Forwarded message resolved — original sender: Steam Support <noreply@steampowered.com>
+2026-08-24 23:57:23,153 | INFO     | app.scraper | Forwarded message resolved — original sender:  <credit_cards@icici.bank.in>
+2026-08-24 23:57:24,275 | INFO     | app.scraper | Forwarded message resolved — original sender:  <credit_cards@icici.bank.in>
+2026-08-24 23:57:25,374 | INFO     | app.scraper | Forwarded message resolved — original sender:  <credit_cards@icici.bank.in>
+2026-08-24 23:57:25,375 | INFO     | app.scraper | Reached target of 15 messages
+2026-08-24 23:57:25,375 | INFO     | app.scraper | Scraping complete — 15 messages collected
+2026-08-24 23:57:26,247 | INFO     | app.nodes | scrape_node: collected 15 emails
+2026-08-24 23:57:26,249 | INFO     | app.summarizer | Summarizing 15 emails using model 'email-digester'
+2026-08-24 23:57:32,257 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-24 23:57:32,988 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-24 23:57:34,393 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-24 23:57:36,087 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-24 23:57:37,337 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-24 23:57:38,579 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-24 23:57:39,831 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-24 23:57:41,291 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-24 23:57:42,632 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-24 23:57:43,994 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-24 23:57:44,478 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-24 23:57:44,950 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-24 23:57:47,024 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-24 23:57:49,926 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-24 23:57:51,911 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-24 23:57:51,912 | INFO     | app.summarizer | 6 of 15 emails meet the urgency threshold (3)
+2026-08-24 23:57:54,692 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-24 23:57:54,693 | INFO     | app.summarizer | Summarization complete — 6 urgent emails, overview generated
+2026-08-24 23:57:54,694 | INFO     | app.nodes | DEBUG: overview in state = The recipient received multiple urgent notifications and alerts from both Steam and ICICI Bank, including a login verification from Steam for suspicious activity, a device access alert from Steam, a credit card statement from ICICI Bank with a payment due date, a password change notification from Steam, and alerts about a declined transaction due to disabled international online transactions for their ICICI Bank credit card.
+2026-08-24 23:57:54,695 | INFO     | app.digest | Digest saved to F:\Assignment\outputs\digest_20260824_235754.md
+2026-08-24 23:57:54,695 | INFO     | app.nodes | save_node: digest saved to F:\Assignment\outputs\digest_20260824_235754.md
+2026-08-24 23:57:54,696 | INFO     | app.main | Pipeline succeeded — digest saved to F:\Assignment\outputs\digest_20260824_235754.md

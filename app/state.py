@@ -18,3 +18,5 @@ class AgentState(TypedDict):
     # Populated if any stage fails
     error: Optional[str]
     error_type: Optional[str]
+
+    overview: Optional[str]
